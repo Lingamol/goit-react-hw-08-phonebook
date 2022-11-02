@@ -1,7 +1,8 @@
 // import PropTypes from 'prop-types';
 import { useDispatch, useSelector } from 'react-redux';
 import { FilterInputLabel, FilterInput } from './Filter.Styled';
-import { setFilter } from 'redux/actions';
+// import { setFilter } from 'redux/actions';
+import { setFilter } from 'redux/filtersSlice';
 import { getFilter } from 'redux/selectors';
 const Filter = () => {
   const dispatch = useDispatch();

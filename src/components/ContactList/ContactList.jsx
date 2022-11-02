@@ -1,6 +1,7 @@
 // import PropTypes from 'prop-types';
 import { useSelector, useDispatch } from 'react-redux';
-import { deleteContact } from 'redux/actions';
+// import { deleteContact } from 'redux/actions';
+import { deleteContact } from 'redux/contactsSlice';
 import { getContacts, getFilter } from 'redux/selectors';
 import {
   ListItemText,
@@ -24,6 +25,7 @@ const ContactList = () => {
   const dispatch = useDispatch();
 
   const visibleContacts = getVisibleContacts(contacts, filter);
+  // const visibleContacts = contacts;
   // console.log('visibleContacts', visibleContacts);
   const handleDeleteContact = contactId => dispatch(deleteContact(contactId));
 
