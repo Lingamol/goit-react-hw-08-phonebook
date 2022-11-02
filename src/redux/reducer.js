@@ -25,6 +25,7 @@ const contactsReducer = (state = contactsInitialState, action) => {
       return state;
   }
 };
+
 const filtersInitialState = {
   filter: '',
 };
