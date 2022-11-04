@@ -2,7 +2,7 @@
 import { useSelector, useDispatch } from 'react-redux';
 // import { deleteContact } from 'redux/actions';
 import { deleteContact } from 'redux/contactsSlice';
-import { getContacts, getFilter } from 'redux/selectors';
+import { getContacts } from 'redux/selectors';
 import {
   ListItemText,
   ListItem,
@@ -12,6 +12,7 @@ import {
 
 const getVisibleContacts = (contacts, filterContact) => {
   const normalizedFilter = filterContact.toLowerCase();
+
   const visibleContacts = contacts.filter(contact =>
     contact.name.toLowerCase().includes(normalizedFilter)
   );
@@ -19,16 +20,17 @@ const getVisibleContacts = (contacts, filterContact) => {
 };
 
 const ContactList = () => {
-  const contacts = useSelector(getContacts);
-
-  const filter = useSelector(getFilter);
+  const { contactList, filter } = useSelector(getContacts);
+  // console.log('contactList', contactList);
+  // console.log('filter', filter);
+  // const { contactList } = useSelector(getFilter);
   const dispatch = useDispatch();
 
-  const visibleContacts = getVisibleContacts(contacts, filter);
+  const visibleContacts = getVisibleContacts(contactList, filter);
   // const visibleContacts = contacts;
   // console.log('visibleContacts', visibleContacts);
   const handleDeleteContact = contactId => dispatch(deleteContact(contactId));
-
+  // if (visibleContacts.length === 0) return;
   return (
     <List>
       {visibleContacts.map(({ id, name, number }) => (

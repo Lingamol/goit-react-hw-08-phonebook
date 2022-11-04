@@ -17,7 +17,7 @@ const ContactFormFormik = () => {
   const nameInpuId = shortid.generate();
   const numberInputId = shortid.generate();
   const initialValues = { name: '', number: '' };
-  const contacts = useSelector(getContacts);
+  const { contactList } = useSelector(getContacts);
   const dispatch = useDispatch();
 
   const handleOnSubmit = (values, { resetForm }) => {
@@ -25,7 +25,7 @@ const ContactFormFormik = () => {
     // console.log('actions', actions);
     const { name, number } = values;
     if (
-      contacts.find(
+      contactList.find(
         contact => contact.name.toLocaleLowerCase() === name.toLocaleLowerCase()
       )
     ) {
