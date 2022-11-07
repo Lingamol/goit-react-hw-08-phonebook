@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux';
 // import { addContact } from 'redux/actions';
-import { addContact } from 'redux/contactsSlice';
+import { addContact } from 'redux/operations ';
 import { Formik, ErrorMessage } from 'formik';
 import { getContacts } from 'redux/selectors';
 import shortid from 'shortid';
