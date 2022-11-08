@@ -21,10 +21,11 @@ import { configureStore } from '@reduxjs/toolkit';
 // const enhancer = devToolsEnhancer();
 // export const store = createStore(rootReducer, enhancer);
 import { contactsReducer } from './contactsSlice';
+import { filtersReducer } from './filtersSlice';
 export const store = configureStore({
   reducer: {
     contacts: contactsReducer,
     // contacts: persistedContactsReducer,
-    // filters: persistedFiltersReducer,
+    filters: filtersReducer,
   },
 });
