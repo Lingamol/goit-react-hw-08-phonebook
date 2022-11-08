@@ -17,7 +17,8 @@ const ContactFormFormik = () => {
   const nameInpuId = shortid.generate();
   const numberInputId = shortid.generate();
   const initialValues = { name: '', number: '' };
-  const { contactList } = useSelector(getContacts);
+  const contactList = useSelector(getContacts);
+  console.log('contactList in form', contactList);
   const dispatch = useDispatch();
 
   const handleOnSubmit = (values, { resetForm }) => {
@@ -33,8 +34,8 @@ const ContactFormFormik = () => {
       return;
     }
 
+    // dispatch(addContact({ name, number }));
     dispatch(addContact({ name, number }));
-
     resetForm();
   };
 

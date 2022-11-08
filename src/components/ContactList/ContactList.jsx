@@ -2,7 +2,7 @@
 import { useSelector, useDispatch } from 'react-redux';
 // import { deleteContact } from 'redux/actions';
 import { deleteContact } from 'redux/operations ';
-import { getContacts } from 'redux/selectors';
+import { getContacts, getFilter } from 'redux/selectors';
 import {
   ListItemText,
   ListItem,
@@ -20,10 +20,10 @@ const getVisibleContacts = (contacts, filterContact) => {
 };
 
 const ContactList = () => {
-  const { contactList, filter } = useSelector(getContacts);
+  const contactList = useSelector(getContacts);
   // console.log('contactList', contactList);
   // console.log('filter', filter);
-  // const { contactList } = useSelector(getFilter);
+  const filter = useSelector(getFilter);
   const dispatch = useDispatch();
 
   const visibleContacts = getVisibleContacts(contactList, filter);

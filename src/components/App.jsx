@@ -6,12 +6,12 @@ import ContactFormFormik from './ContactFormFormik';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchContacts } from 'redux/operations ';
-import { getContacts } from 'redux/selectors';
+import { getContactsObj } from 'redux/selectors';
 
 export const App = () => {
   const dispatch = useDispatch();
   // Получаем части состояния
-  const { contactList, isLoading, error } = useSelector(getContacts);
+  const { contactList, isLoading, error } = useSelector(getContactsObj);
   // Вызываем операцию
   useEffect(() => {
     dispatch(fetchContacts());
@@ -23,7 +23,7 @@ export const App = () => {
       {/* <ContactForm onSubmit={heandleSubmitForm} /> */}
       <ContactFormFormik />
       <AppContactsListTitle>Contacts</AppContactsListTitle>
-      <Filter />
+      {/* <Filter /> */}
       {isLoading && <p>Loading contacts...</p>}
       {error && <p>{error}</p>}
       {contactList.length > 0 && <ContactList />}
