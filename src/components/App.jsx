@@ -23,7 +23,7 @@ export const App = () => {
       {/* <ContactForm onSubmit={heandleSubmitForm} /> */}
       <ContactFormFormik />
       <AppContactsListTitle>Contacts</AppContactsListTitle>
-      {/* <Filter /> */}
+      <Filter />
       {isLoading && <p>Loading contacts...</p>}
       {error && <p>{error}</p>}
       {contactList.length > 0 && <ContactList />}
