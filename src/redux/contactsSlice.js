@@ -12,7 +12,6 @@ const contactsInitialState = {
   ],
   isLoading: false,
   error: null,
-  filter: '',
 };
 
 const extraActions = [fetchContacts, addContact, deleteContact];
