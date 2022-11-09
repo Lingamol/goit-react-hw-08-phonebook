@@ -6,12 +6,12 @@ import ContactFormFormik from './ContactFormFormik';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchContacts } from 'redux/operations ';
-import { getContactsObj } from 'redux/selectors';
+import { selectContactsObj } from 'redux/selectors';
 
 export const App = () => {
   const dispatch = useDispatch();
   // Получаем части состояния
-  const { contactList, isLoading, error } = useSelector(getContactsObj);
+  const { contactList, isLoading, error } = useSelector(selectContactsObj);
   // Вызываем операцию
   useEffect(() => {
     dispatch(fetchContacts());

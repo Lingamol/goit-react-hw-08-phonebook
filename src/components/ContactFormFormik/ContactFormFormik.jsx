@@ -2,7 +2,7 @@ import { useDispatch, useSelector } from 'react-redux';
 // import { addContact } from 'redux/actions';
 import { addContact } from 'redux/operations ';
 import { Formik, ErrorMessage } from 'formik';
-import { getContacts } from 'redux/selectors';
+import { selectContacts } from 'redux/selectors';
 import shortid from 'shortid';
 import * as yup from 'yup';
 import {
@@ -17,8 +17,8 @@ const ContactFormFormik = () => {
   const nameInpuId = shortid.generate();
   const numberInputId = shortid.generate();
   const initialValues = { name: '', number: '' };
-  const contactList = useSelector(getContacts);
-  console.log('contactList in form', contactList);
+  const contactList = useSelector(selectContacts);
+  // console.log('contactList in form', contactList);
   const dispatch = useDispatch();
 
   const handleOnSubmit = (values, { resetForm }) => {

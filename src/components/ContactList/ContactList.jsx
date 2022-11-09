@@ -2,7 +2,11 @@
 import { useSelector, useDispatch } from 'react-redux';
 // import { deleteContact } from 'redux/actions';
 import { deleteContact } from 'redux/operations ';
-import { getContacts, getFilter } from 'redux/selectors';
+import {
+  // selectContacts,
+  // selectFilter,
+  selectVisibleContacts,
+} from 'redux/selectors';
 import {
   ListItemText,
   ListItem,
@@ -10,23 +14,24 @@ import {
   ListItemBtn,
 } from './ContactList.sryled';
 
-const getVisibleContacts = (contacts, filterContact) => {
-  const normalizedFilter = filterContact.toLowerCase();
+// const getVisibleContacts = (contacts, filterContact) => {
+//   const normalizedFilter = filterContact.toLowerCase();
 
-  const visibleContacts = contacts.filter(contact =>
-    contact.name.toLowerCase().includes(normalizedFilter)
-  );
-  return visibleContacts ? visibleContacts : [];
-};
+//   const visibleContacts = contacts.filter(contact =>
+//     contact.name.toLowerCase().includes(normalizedFilter)
+//   );
+//   return visibleContacts ? visibleContacts : [];
+// };
 
 const ContactList = () => {
-  const contactList = useSelector(getContacts);
+  // const contactList = useSelector(selectContacts);
   // console.log('contactList', contactList);
   // console.log('filter', filter);
-  const filter = useSelector(getFilter);
+  // const filter = useSelector(selectFilter);
   const dispatch = useDispatch();
 
-  const visibleContacts = getVisibleContacts(contactList, filter);
+  // const visibleContacts = getVisibleContacts(contactList, filter);
+  const visibleContacts = useSelector(selectVisibleContacts);
   // const visibleContacts = contacts;
   // console.log('visibleContacts', visibleContacts);
   const handleDeleteContact = contactId => dispatch(deleteContact(contactId));
