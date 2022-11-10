@@ -17,7 +17,7 @@ const handleFetchContactsSuccses = (state, action) => {
 const handleAddContactSuccses = (state, action) => {
   state.contactList.push(action.payload);
 };
-const handleDeleteContactSuccses = (state, action) => (state, action) => {
+const handleDeleteContactSuccses = (state, action) => {
   const index = state.contactList.findIndex(
     contact => contact.id === action.payload.id
   );
