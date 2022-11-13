@@ -10,6 +10,7 @@ import { selectContactsObj } from 'redux/selectors';
 
 export const App = () => {
   const dispatch = useDispatch();
+
   // Получаем части состояния
   const { contactList, isLoading, error } = useSelector(selectContactsObj);
   // Вызываем операцию
