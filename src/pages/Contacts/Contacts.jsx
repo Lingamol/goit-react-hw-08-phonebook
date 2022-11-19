@@ -6,7 +6,10 @@ import ContactFormFormik from 'components/ContactFormFormik/ContactFormFormik';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchContacts } from 'redux/contacts/operations ';
-import { selectContactsObj } from 'redux/selectors';
+import { selectContactsObj } from 'redux/contacts/selectors';
+import Loader from 'components/Loader';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export const Contacts = () => {
   const dispatch = useDispatch();
@@ -25,9 +28,14 @@ export const Contacts = () => {
       <ContactFormFormik />
       <AppContactsListTitle>Contacts</AppContactsListTitle>
       <Filter />
-      {isLoading && <p>Loading contacts...</p>}
+      {isLoading && <Loader />}
       {error && <p>{error}</p>}
-      {contactList.length > 0 && <ContactList />}
+      {contactList.length > 0 ? (
+        <ContactList />
+      ) : (
+        <p>Add your first contact!!!</p>
+      )}
+      <ToastContainer />
     </Container>
   );
 };

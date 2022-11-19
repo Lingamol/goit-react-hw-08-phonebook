@@ -6,7 +6,7 @@ import {
   // selectContacts,
   // selectFilter,
   selectVisibleContacts,
-} from 'redux/selectors';
+} from 'redux/contacts/selectors';
 import {
   ListItemText,
   ListItem,

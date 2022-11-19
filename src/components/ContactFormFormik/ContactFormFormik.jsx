@@ -2,7 +2,7 @@ import { useDispatch, useSelector } from 'react-redux';
 // import { addContact } from 'redux/actions';
 import { addContact } from 'redux/contacts/operations ';
 import { Formik, ErrorMessage } from 'formik';
-import { selectContacts } from 'redux/selectors';
+import { selectContacts } from 'redux/contacts/selectors';
 import shortid from 'shortid';
 import * as yup from 'yup';
 import {
@@ -40,14 +40,7 @@ const ContactFormFormik = () => {
   };
 
   const schema = yup.object().shape({
-    name: yup
-      .string()
-      .max(20)
-      .matches(
-        /^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$/,
-        "Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
-      )
-      .required(),
+    name: yup.string().max(20).required(),
     number: yup
       .string()
       .max(10)
