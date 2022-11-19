@@ -1,14 +1,14 @@
-import ContactList from './ContactList';
-import Filter from './Filter';
+import ContactList from 'components/ContactList/ContactList';
+import Filter from 'components/Filter/Filter';
 // import { nanoid } from 'nanoid';
-import { Container, AppTitle, AppContactsListTitle } from './App.styled';
-import ContactFormFormik from './ContactFormFormik';
+import { Container, AppTitle, AppContactsListTitle } from './Contacts.styled';
+import ContactFormFormik from 'components/ContactFormFormik/ContactFormFormik';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchContacts } from 'redux/operations ';
+import { fetchContacts } from 'redux/contacts/operations ';
 import { selectContactsObj } from 'redux/selectors';
 
-export const App = () => {
+export const Contacts = () => {
   const dispatch = useDispatch();
 
   // Получаем части состояния
@@ -31,3 +31,4 @@ export const App = () => {
     </Container>
   );
 };
+export default Contacts;
