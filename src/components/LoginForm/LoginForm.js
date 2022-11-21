@@ -117,7 +117,6 @@ import {
   FormLabel,
   Input,
   VStack,
-  FormHelperText,
   useColorModeValue,
   Heading,
 } from '@chakra-ui/react';

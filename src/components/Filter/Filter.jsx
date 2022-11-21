@@ -1,25 +1,19 @@
 // import PropTypes from 'prop-types';
 import { useDispatch, useSelector } from 'react-redux';
-import { FilterInputLabel, FilterInput } from './Filter.Styled';
+
 // import { setFilter } from 'redux/actions';
 import { setFilter } from 'redux/filters/filtersSlice';
 import { selectFilter } from 'redux/filters/selectors';
 import {
   Box,
-  Button,
+
   // ChakraProvider,
   // Checkbox,
   Flex,
-  FormControl,
   FormLabel,
   Input,
   VStack,
-  useColorMode,
   useColorModeValue,
-  useToast,
-  Heading,
-  FormErrorMessage,
-  Field,
 } from '@chakra-ui/react';
 
 const Filter = () => {

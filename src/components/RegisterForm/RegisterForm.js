@@ -48,19 +48,17 @@ import {
   FormLabel,
   Input,
   VStack,
-  useColorMode,
   useColorModeValue,
   Heading,
 } from '@chakra-ui/react';
 import { Formik, Field } from 'formik';
-import { Header } from 'components/SharedLayout/SharedLayout.styled';
 export const RegisterForm = () => {
   const dispatch = useDispatch();
   const authError = useSelector(selecAuthError);
   const authIsLoading = useSelector(selecAuthIsLoading);
 
   const formBackground = useColorModeValue('gray.100', 'gray.700');
-  const inputBackground = useColorModeValue('grey.500', 'gray.100');
+  // const inputBackground = useColorModeValue('grey.500', 'gray.100');
   const handleSubmit = (values, { resetForm }) => {
     const { name, email, password } = values;
     dispatch(

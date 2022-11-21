@@ -1,13 +1,4 @@
-import {
-  Box,
-  useColorMode,
-  useColorModeValue,
-  Heading,
-  Button,
-  Switch,
-  FormControl,
-  FormLabel,
-} from '@chakra-ui/react';
+import { useColorMode, Switch, FormControl, FormLabel } from '@chakra-ui/react';
 const Theme = () => {
   const { toggleColorMode } = useColorMode();
   return (
