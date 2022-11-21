@@ -2,7 +2,8 @@
   "name": "react-homework-template",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://lingamol.github.io/goit-react-hw-08-phonebook/",
+  "homepage": " https://lingamol.github.io/test8/",
+ 
   "dependencies": {
     "@chakra-ui/icons": "^2.0.12",
     "@chakra-ui/react": "^2.4.1",
