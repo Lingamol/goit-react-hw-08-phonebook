@@ -40,7 +40,7 @@ const ContactFormFormik = () => {
         title: 'Creating contact error!',
         description: `${name} is already in contacts`,
         status: 'error',
-        duration: 3000,
+        duration: 2000,
         isClosable: true,
         position: 'top',
       });
@@ -53,7 +53,7 @@ const ContactFormFormik = () => {
       title: 'Contact created!',
       description: `Contact ${name} succesfuly addet to phonebook`,
       status: 'success',
-      duration: 3000,
+      duration: 2000,
       isClosable: true,
       position: 'top',
     });
