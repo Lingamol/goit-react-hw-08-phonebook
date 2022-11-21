@@ -118,12 +118,15 @@ import {
   Input,
   VStack,
   FormHelperText,
+  useColorModeValue,
+  Heading,
 } from '@chakra-ui/react';
 import { Formik, Field } from 'formik';
 export const LoginForm = () => {
   const dispatch = useDispatch();
   const authError = useSelector(selecAuthError);
   const authIsLoading = useSelector(selecAuthIsLoading);
+  const formBackground = useColorModeValue('gray.100', 'gray.700');
 
   const handleSubmit = (values, { resetForm }) => {
     const { email, password } = values;
@@ -156,8 +159,11 @@ export const LoginForm = () => {
   // };
 
   return (
-    <Flex bg="gray.100" align="center" justify="center" h="100vh">
-      <Box bg="white" p={6} rounded="md" w={64}>
+    <Flex align="center" h="100vh" flexDir="column">
+      <Heading mb={6} fontSize="md">
+        Login
+      </Heading>
+      <Box p={6} rounded="md" w={64} background={formBackground}>
         <Formik
           initialValues={{
             email: '',

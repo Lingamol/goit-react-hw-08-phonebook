@@ -10,6 +10,13 @@ import { selectContactsObj } from 'redux/contacts/selectors';
 import Loader from 'components/Loader';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import {
+  IconButton,
+  useToast,
+  Flex,
+  Box,
+  useColorModeValue,
+} from '@chakra-ui/react';
 
 export const Contacts = () => {
   const dispatch = useDispatch();
@@ -25,18 +32,23 @@ export const Contacts = () => {
     <Container>
       <AppTitle>Phonebook</AppTitle>
       {/* <ContactForm onSubmit={heandleSubmitForm} /> */}
-      <ContactFormFormik />
-      <AppContactsListTitle>Contacts</AppContactsListTitle>
-      <Filter />
-      {isLoading && <Loader />}
-      {error && <p>{error}</p>}
-      <div>{isLoading && 'Request in progress...'}</div>
-      {contactList.length > 0 ? (
-        <ContactList />
-      ) : (
-        <p>Add your first contact!!!</p>
-      )}
-      <ToastContainer />
+
+      <Flex h="auto">
+        <Box p={6} rounded="md">
+          <ContactFormFormik />
+        </Box>
+        <Box p={6} rounded="md">
+          <Filter />
+          {/* {isLoading && <Loader />} */}
+          {error && <p>{error}</p>}
+          <div>{isLoading && 'Request in progress...'}</div>
+          {contactList.length > 0 ? (
+            <ContactList />
+          ) : (
+            <p>Add your first contact!!!</p>
+          )}
+        </Box>
+      </Flex>
     </Container>
   );
 };

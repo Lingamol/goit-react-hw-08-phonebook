@@ -48,13 +48,19 @@ import {
   FormLabel,
   Input,
   VStack,
+  useColorMode,
+  useColorModeValue,
+  Heading,
 } from '@chakra-ui/react';
 import { Formik, Field } from 'formik';
+import { Header } from 'components/SharedLayout/SharedLayout.styled';
 export const RegisterForm = () => {
   const dispatch = useDispatch();
   const authError = useSelector(selecAuthError);
   const authIsLoading = useSelector(selecAuthIsLoading);
 
+  const formBackground = useColorModeValue('gray.100', 'gray.700');
+  const inputBackground = useColorModeValue('grey.500', 'gray.100');
   const handleSubmit = (values, { resetForm }) => {
     const { name, email, password } = values;
     dispatch(
@@ -67,8 +73,11 @@ export const RegisterForm = () => {
   };
 
   return (
-    <Flex bg="gray.100" align="center" justify="center" h="100vh">
-      <Box bg="white" p={6} rounded="md" w={64}>
+    <Flex align="center" h="100vh" flexDir="column">
+      <Heading mb={6} fontSize="md">
+        Register
+      </Heading>
+      <Box p={6} rounded="md" w={64} background={formBackground}>
         <Formik
           initialValues={{
             name: '',
@@ -96,6 +105,7 @@ export const RegisterForm = () => {
                         return 'Username should be max 15 characters.';
                       }
                     }}
+                    // bg={inputBackground}
                   />
                   <FormErrorMessage>{errors.name}</FormErrorMessage>
                 </FormControl>
