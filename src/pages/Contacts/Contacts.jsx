@@ -30,6 +30,7 @@ export const Contacts = () => {
       <Filter />
       {isLoading && <Loader />}
       {error && <p>{error}</p>}
+      <div>{isLoading && 'Request in progress...'}</div>
       {contactList.length > 0 ? (
         <ContactList />
       ) : (
