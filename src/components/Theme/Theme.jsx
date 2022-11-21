@@ -4,7 +4,7 @@ const Theme = () => {
   return (
     <FormControl display="flex" alignItems="center" w="auto">
       <FormLabel htmlFor="theme-switch" mb="0">
-        Theme swicth
+        Theme switch
       </FormLabel>
       <Switch
         id="theme-switch"
