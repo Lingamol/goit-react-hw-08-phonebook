@@ -29,7 +29,7 @@ const Filter = () => {
   const onFilterChange = value => dispatch(setFilter(value));
   return (
     <Flex align="center" h="auto" flexDir="column" mb={6}>
-      <Box p={6} rounded="md" w={96} background={formBackground}>
+      <Box p={6} rounded="md" w="460px" background={formBackground}>
         <VStack spacing={4} align="flex-start">
           <FormLabel htmlFor="text" name="filter">
             Find contacts by name

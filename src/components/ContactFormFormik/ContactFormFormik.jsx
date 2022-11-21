@@ -4,37 +4,25 @@ import { addContact } from 'redux/contacts/operations ';
 import { Formik, Field } from 'formik';
 import { selectContacts } from 'redux/contacts/selectors';
 import * as yup from 'yup';
-// import {
-//   FormContact,
-//   FormInputLabel,
-//   FormInput,
-//   FormBtn,
-//   FormErrorMessage,
-// } from './ContactFormFormik.styled';
 import {
   Box,
   Button,
-  // ChakraProvider,
-  // Checkbox,
   Flex,
   FormControl,
   FormLabel,
   Input,
   VStack,
-  useColorMode,
   useColorModeValue,
   useToast,
-  Heading,
   FormErrorMessage,
 } from '@chakra-ui/react';
-import { selectIsLoading, selectError } from 'redux/contacts/selectors';
+import { selectIsLoading } from 'redux/contacts/selectors';
+
 const ContactFormFormik = () => {
-  const error = useSelector(selectError);
   const isLoading = useSelector(selectIsLoading);
   const initialValues = { name: '', number: '' };
   const contactList = useSelector(selectContacts);
   const toast = useToast();
-  // console.log('contactList in form', contactList);
   const formBackground = useColorModeValue('gray.100', 'gray.700');
   const dispatch = useDispatch();
 
@@ -56,11 +44,10 @@ const ContactFormFormik = () => {
         isClosable: true,
         position: 'top',
       });
-      // alert(`${name} is already in contacts`);
+
       return;
     }
 
-    // dispatch(addContact({ name, number }));
     dispatch(addContact({ name, number }));
     toast({
       title: 'Contact created!',
@@ -110,7 +97,6 @@ const ContactFormFormik = () => {
                         return 'Name should be max 15 characters.';
                       }
                     }}
-                    // bg={inputBackground}
                   />
                   <FormErrorMessage>{errors.name}</FormErrorMessage>
                 </FormControl>
@@ -150,4 +136,3 @@ const ContactFormFormik = () => {
 };
 
 export default ContactFormFormik;
-// ContactFormFormik.propTypes = { onSubmit: PropTypes.func.isRequired };

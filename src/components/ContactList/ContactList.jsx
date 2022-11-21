@@ -1,19 +1,11 @@
-// import PropTypes from 'prop-types';
 import { useSelector, useDispatch } from 'react-redux';
-// import { deleteContact } from 'redux/actions';
 import { deleteContact } from 'redux/contacts/operations ';
-import {
-  // selectContacts,
-  // selectFilter,
-  selectVisibleContacts,
-} from 'redux/contacts/selectors';
-import { ListItemText, ListItemBtn } from './ContactList.sryled';
+import { selectVisibleContacts } from 'redux/contacts/selectors';
+import { ListItemText } from './ContactList.sryled';
 import {
   List,
   ListItem,
   ListIcon,
-  OrderedList,
-  UnorderedList,
   IconButton,
   AlertDialog,
   AlertDialogBody,
@@ -30,11 +22,11 @@ import {
   useColorModeValue,
   Heading,
 } from '@chakra-ui/react';
-import React, { useState, useEffect } from 'react';
-import { BiPhoneCall } from 'react-icons/bi';
-import { PhoneIcon, AddIcon, WarningIcon, DeleteIcon } from '@chakra-ui/icons';
+import React from 'react';
+// import { BiPhoneCall } from 'react-icons/bi';
+import { PhoneIcon, DeleteIcon } from '@chakra-ui/icons';
 
-import { selectIsLoading, selectError } from 'redux/contacts/selectors';
+// import { selectIsLoading, selectError } from 'redux/contacts/selectors';
 // const getVisibleContacts = (contacts, filterContact) => {
 //   const normalizedFilter = filterContact.toLowerCase();
 //   const visibleContacts = contacts.filter(contact =>
@@ -74,66 +66,74 @@ const ContactList = () => {
   // if (visibleContacts.length === 0) return;
   return (
     <Flex align="center" h="auto" flexDir="column">
-      <Box p={6} rounded="md" w={96}>
-        <Heading mb={6} fontSize="md">
-          Contacts
-        </Heading>
-        <List spacing={3}>
-          {visibleContacts.map(({ id, name, number }) => (
-            <ListItem key={id}>
-              <Flex align="center" h="auto" flexDir="column">
-                <Box p={6} rounded="md" w={96} background={formBackground}>
-                  <ListIcon as={PhoneIcon} color="green.500" />
-                  <ListItemText>{name}</ListItemText>
-                  <ListItemText>{number}</ListItemText>
-                  <IconButton
-                    colorScheme="red"
-                    aria-label="Delete contact"
-                    size="sm"
-                    icon={<DeleteIcon />}
-                    // onClick={() => handleDeleteContact(id)}
-                    onClick={onOpen}
-                    variant="outline"
-                    // isLoading={isLoading}
-                  />
-                </Box>
+      {/* <Box p={6} rounded="md" w={96}> */}
+      <Heading mb={6} fontSize="md">
+        Contacts
+      </Heading>
+      <List spacing={3}>
+        {visibleContacts.map(({ id, name, number }) => (
+          <ListItem key={id}>
+            <Box
+              p={6}
+              rounded="md"
+              w="460px"
+              background={formBackground}
+              textAlign="left"
+              boxShadow="lg"
+            >
+              <Flex h="auto" alignItems="center">
+                <ListIcon as={PhoneIcon} color="green.500" />
+                <ListItemText>{name}</ListItemText>
+                <ListItemText>{number}</ListItemText>
+                <IconButton
+                  colorScheme="red"
+                  aria-label="Delete contact"
+                  size="sm"
+                  icon={<DeleteIcon />}
+                  // onClick={() => handleDeleteContact(id)}
+                  onClick={onOpen}
+                  variant="outline"
+                  // isLoading={isLoading}
+                  mr="auto"
+                />
               </Flex>
-              <AlertDialog
-                motionPreset="slideInBottom"
-                leastDestructiveRef={cancelRef}
-                onClose={onClose}
-                isOpen={isOpen}
-                isCentered
-              >
-                <AlertDialogOverlay />
+            </Box>
 
-                <AlertDialogContent>
-                  <AlertDialogHeader>Cancel Changes?</AlertDialogHeader>
-                  <AlertDialogCloseButton />
-                  <AlertDialogBody>
-                    Are you sure you want to delete contact {name}?
-                  </AlertDialogBody>
-                  <AlertDialogFooter>
-                    <Button ref={cancelRef} onClick={onClose}>
-                      No
-                    </Button>
-                    <Button
-                      colorScheme="teal"
-                      onClick={() => {
-                        handleDeleteContact(id, name);
-                        onClose();
-                      }}
-                      ml={3}
-                    >
-                      Yes
-                    </Button>
-                  </AlertDialogFooter>
-                </AlertDialogContent>
-              </AlertDialog>
-            </ListItem>
-          ))}
-        </List>
-      </Box>
+            <AlertDialog
+              motionPreset="slideInBottom"
+              leastDestructiveRef={cancelRef}
+              onClose={onClose}
+              isOpen={isOpen}
+              isCentered
+            >
+              <AlertDialogOverlay bg="rgba(0, 0, 0, 0.2)" />
+              <AlertDialogContent>
+                <AlertDialogHeader> Delete contact?</AlertDialogHeader>
+                <AlertDialogCloseButton />
+                <AlertDialogBody>
+                  Are you sure you want to delete contact {name}?
+                </AlertDialogBody>
+                <AlertDialogFooter>
+                  <Button ref={cancelRef} onClick={onClose}>
+                    No
+                  </Button>
+                  <Button
+                    colorScheme="teal"
+                    onClick={() => {
+                      handleDeleteContact(id, name);
+                      onClose();
+                    }}
+                    ml={3}
+                  >
+                    Yes
+                  </Button>
+                </AlertDialogFooter>
+              </AlertDialogContent>
+            </AlertDialog>
+          </ListItem>
+        ))}
+      </List>
+      {/* </Box> */}
     </Flex>
   );
 

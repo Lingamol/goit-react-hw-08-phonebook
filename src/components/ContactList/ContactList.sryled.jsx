@@ -15,7 +15,8 @@ export const ListItem = styled.li`
 `;
 export const ListItemText = styled.span`
   &:not(:last-child) {
-    margin-right: 10px;
+    margin-right: 15px;
+    width: 150px;
   }
 `;
 export const ListItemBtn = styled.button`
