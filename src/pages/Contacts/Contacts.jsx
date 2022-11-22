@@ -7,10 +7,15 @@ import { useDispatch, useSelector } from 'react-redux';
 import { fetchContacts } from 'redux/contacts/operations ';
 import { selectContactsObj } from 'redux/contacts/selectors';
 import 'react-toastify/dist/ReactToastify.css';
-import { Flex, Box } from '@chakra-ui/react';
+import {
+  Flex,
+  Box,
+  useColorModeValue,
+  CircularProgress,
+} from '@chakra-ui/react';
 export const Contacts = () => {
   const dispatch = useDispatch();
-
+  const formBackground = useColorModeValue('gray.100', 'gray.700');
   const { contactList, isLoading, error } = useSelector(selectContactsObj);
 
   useEffect(() => {
@@ -27,11 +32,20 @@ export const Contacts = () => {
           <Filter />
           {/* {isLoading && <Loader />} */}
           {error && <p>{error}</p>}
-          <div>{isLoading && 'Request in progress...'}</div>
+          {isLoading && <CircularProgress isIndeterminate color="green.300" />}
           {contactList.length > 0 ? (
             <ContactList />
           ) : (
-            <p>Add your first contact!!!</p>
+            <Box
+              p={6}
+              rounded="md"
+              w="460px"
+              background={formBackground}
+              textAlign="center"
+              boxShadow="lg"
+            >
+              <p>Add your first contact !!!</p>
+            </Box>
           )}
         </Box>
       </Flex>

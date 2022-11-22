@@ -70,7 +70,7 @@ export const RegisterForm = () => {
                   />
                   <FormErrorMessage>{errors.name}</FormErrorMessage>
                 </FormControl>
-                <FormControl>
+                <FormControl isInvalid={!!errors.email && touched.email}>
                   <FormLabel htmlFor="email">Email Address</FormLabel>
                   <Field
                     as={Input}
@@ -79,6 +79,7 @@ export const RegisterForm = () => {
                     type="email"
                     variant="filled"
                   />
+                  <FormErrorMessage>{errors.email}</FormErrorMessage>
                 </FormControl>
                 <FormControl isInvalid={!!errors.password && touched.password}>
                   <FormLabel htmlFor="password">Password</FormLabel>
@@ -89,7 +90,7 @@ export const RegisterForm = () => {
                     type="password"
                     variant="filled"
                     validate={value => {
-                      if (value.length < 6) {
+                      if (value.length < 7) {
                         return 'Password should be over 7 characters.';
                       }
                     }}
