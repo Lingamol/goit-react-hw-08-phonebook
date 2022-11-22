@@ -93,8 +93,8 @@ const ContactFormFormik = () => {
                     placeholder="Enter name"
                     variant="filled"
                     validate={value => {
-                      if (value.length > 15) {
-                        return 'Name should be max 15 characters.';
+                      if (value.length > 32) {
+                        return 'Name should be max 32 characters.';
                       }
                     }}
                   />
